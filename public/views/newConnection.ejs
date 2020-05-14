@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs', {pageParams: pageParams, user: user}) -%>
+<section class="main-content">
+    <h2>New Connection</h2>
+    <form id="new-connection-form" method="POST" action="/connections/new">
+        <div class="new-connection-items">
+            <label>Topic: </label>
+            <input type="text" name="topic" placeholder="What" required>
+            <br>
+            <label>Name: </label>
+            <input type="text" name="name" placeholder="Name" required>
+            <br>
+            <label>Details: </label>
+            <textarea name="details" placeholder="Description" required></textarea>
+            <br>
+            <label>Where: </label>
+            <input type="text" name="where" placeholder="Location" required>
+            <br>
+            <label>When: </label>
+            <input type="date" name="when" required>
+            <br>
+            <label>At: </label>
+            <input type="time" name="at" required>
+            <br>
+            <input type="submit" value="Create Connection">
+        </div>
+        
+    </form>
+</section>
+<%- include('partials/footer.ejs') -%>

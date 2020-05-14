@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title><%= pageParams.title %></title>
+
+	<meta name="description" content="Events of the town!">
+	<meta name="author" content="Preetham Shankare Gowda">
+	<meta name="viewport" content="initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles.css">
+
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<!-- <div class="font-size-50 hidden">-</div> -->
+			<div class="banner"> <a href="/"> KooD </a> </div>
+			<div class="tagline">For the happening events around you...</div>
+			<%- include('navigation.ejs', {user: user}) -%>
+		</div>
+
+	</header>
+	<% if (errors != null) { %>
+		<% errors.forEach(error => { %>
+			<section class="error">
+				<p>
+					• <%= error.msg %> 
+				</p>
+			</section>
+		<% }) %>
+	<% } %>
+	

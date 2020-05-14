@@ -1,0 +1,16 @@
+<nav class="user-nav">
+    <span class="nav-new-connection"><a href="/connections/new">New Connection</a></span>
+
+    <% if (user == null) { %>
+        <span class="nav-login"> | <a href="/user/login">login</a></span>
+        <span class="nav-signup"> | <a href="/user/login">signup</a></span>
+    <%} else { %>
+        <span class="nav-new-connection"> | <a href="/user/connections">My Connections</a></span>
+        <span class="nav-logout"> | <%=user.firstName%>, <a href="/user/logout">Logout</a></span>
+    <% } %>
+</nav>
+<hr>
+<nav class="site-nav">
+    <a href="/">Home</a> |
+    <a href="/connections">All Connections</a>
+</nav>

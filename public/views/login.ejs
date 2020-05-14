@@ -1,0 +1,18 @@
+<%- include('partials/header.ejs', {pageParams: pageParams, user: user}) -%>
+<section class="main-content">
+    <h2>Welcome to K00D!</h2>
+    <h3>Please enter your credentials to sign in.</h3>
+    <form id="new-connection-form" method="POST" action="/user/login">
+        <div class="new-connection-items">
+            <label>Username: </label>
+            <input type="text" name="username" placeholder="Username">
+            <br>
+            <label>Password: </label>
+            <input type="password" name="password" placeholder="Password">
+            <br>
+            <input type="submit" value="Login">
+        </div>
+        
+    </form>
+</section>
+<%- include('partials/footer.ejs') -%>

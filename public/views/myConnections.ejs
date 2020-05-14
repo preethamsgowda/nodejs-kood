@@ -1,0 +1,53 @@
+<%- include('partials/header.ejs', {pageParams: pageParams, user: user}) -%>
+<section class="main-content">
+    <div>
+        <h2 class="my-connection-header">My connections</h2>
+    </div>
+    <div>
+        <% if (userConnections.length > 0) { %>
+            <table class="my-connections-table">
+                <thead>
+                    <tr>
+                        <td>Connection</td>
+                        <td>Category</td>
+                        <td>Attending?</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                <% userConnections.forEach(userConnection => { %>
+                    <tr>
+                        <td><%=userConnection.connection[0].connectionName%></td>
+                        <td><%=userConnection.connection[0].connectionCategory%></td>
+                        <td><%=userConnection.rsvp%></td>
+                        <td>
+                            <form action="/connection/<%=userConnection.connection[0].connectionId%>" method="GET">
+                                <button type="submit">Update</button>
+                            </form>
+                            <form action="/user/rsvp" method="POST">
+                                <input type="hidden" name="_method" value="delete" />
+                                <input type="hidden" name="connection-id" value="<%= userConnection.connection[0].connectionId %>" />
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% });%>
+            </table>
+            <div class="my-connections-list">
+                <hr>
+                <% userConnections.forEach(userConnection => { %>
+                    <div class="title">JSC<%=userConnection.connection[0].connectionName%>onf</div>
+                    <div>Category: <%=userConnection.connection[0].connectionCategory%></div>
+                    <div>Attending: <%=userConnection.rsvp%></div>
+                    <div>
+                        <button onclick="window.location.href='/connection/<%=userConnection.connection[0].connectionId%>'">Update</button>
+                        <button onclick="window.location.href='/connections/my-connections'">Delete</button>
+                    </div>
+                    <hr>
+                <% });%>                
+            </div>
+        <% } else { %>
+            <h3>No saved connections.</h3>
+        <% } %>
+    </div>
+</section>
+<%- include('partials/footer.ejs') -%>

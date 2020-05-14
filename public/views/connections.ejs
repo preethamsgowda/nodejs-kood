@@ -1,0 +1,19 @@
+<%- include('partials/header.ejs', {pageParams: pageParams, user: user}) -%>
+<section class="main-content">
+    <h2>Available Connections</h2>
+
+    <% if (connectionsSize > 0) { %>
+        <% result.forEach(connectionsOfCategory => { %>
+            <div class="event-category"><%= connectionsOfCategory.connectionCategory%></div>
+        
+        <% connectionsOfCategory.connections.forEach(connection => { %>
+            <div class="event"> <a href="/connection/<%= connection.connectionId %>"><%= connection.connectionName %></a></div>
+        <% });%>
+    
+        <% }); %>
+    <% } else { %>
+        <div class="event-category">No Connections Found.</div>
+    <% } %>
+    
+</section>
+<%- include('partials/footer.ejs') -%>

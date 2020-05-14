@@ -1,0 +1,101 @@
+use kood_db;
+
+db.connections.drop();
+
+db.createCollection("connections");
+
+db.connections.insert([
+    {
+        connectionId: 1,
+        connectionName : "Pythonistas",
+        connectionCategory : "Tech Meets",
+        details : "This is a python boot camp for all the pythonistas",
+        location : "Chicago",
+        date : "2020-05-18T16:00:00Z",
+        thumbnail : "ct_conx_A000001_0001.jpg"
+    }, 
+    {
+        connectionId: 2,
+        connectionName : "JSConf",
+        connectionCategory : "Tech Meets",
+        details : "JavaScript conference for the ones who dig it.",
+        location : "UNC at Charlotte",
+        date : "2020-03-18T16:00:00Z",
+        thumbnail : "ct_conx_A000002_0001.png"
+    }, 
+    {
+        connectionId: 3,
+        connectionName : "DevConf 2020",
+        connectionCategory : "Tech Meets",
+        details : "A shout out to all those top end devs around the world to get to together and do nothing.",
+        location : "Las Vegas",
+        date : "2020-02-18T16:00:00Z",
+        thumbnail : "ct_conx_A000003_0001.png"
+    }, 
+    {
+        connectionId: 4,
+        connectionName : "International Coffee Hour",
+        connectionCategory : "Social Meetups",
+        details : "Well yeah, let's have some tea too.",
+        location : "Detroit",
+        date : "2020-05-18T16:00:00Z",
+        thumbnail : "ct_conx_A000004_0001.png"
+    }, 
+    {
+        connectionId: 5,
+        connectionName : "Valentines Karaoke",
+        connectionCategory : "Social Meetups",
+        details : "For all those singles out there, you rock!!!",
+        location : "New York",
+        date : "2020-05-18T16:00:00Z",
+        thumbnail : "ct_conx_A000005_0001.jpg"
+    }, 
+    {
+        connectionId: 6,
+        connectionName : "Queens Feast",
+        connectionCategory : "Social Meetups",
+        details : "When you don't want to have a king's meal...",
+        location : "Andaman",
+        date : "2020-06-18T16:00:00Z",
+        thumbnail : "ct_conx_A000006_0001.jpg"
+    }, 
+    {
+        connectionId: 7,
+        connectionName : "Damn! An IT Seminar...",
+        connectionCategory : "IT Seminars",
+        details : "Look at the name of the connection.",
+        location : "Mars",
+        date : "2020-09-21T16:00:00Z",
+        thumbnail: "ct_conx_A000007_0001.jpg"
+    }
+]);
+
+db.users.drop();
+
+db.createCollection("users");
+
+db.users.insert({
+    "userId": 1,
+    "firstName": "Preetham",
+    "lastName": "Shankare Gowda",
+    "email": "me@preetham.net",
+    "password": "$2b$10$ZmPhVj1oOUQGMcokwQPx7OL5EXdmPOhWNMO2//F4LaP7S8v.8QsrK",
+    "address1": "426 Barton Creek Drive",
+    "address2": "Apt C",
+    "city": "Charlotte",
+    "state": "NC",
+    "zipcode": "28262",
+    "country": "United States"
+});
+
+db.counters.drop();
+
+db.createCollection("counters");
+
+db.counters.insert({
+    "id" : "connectionId",
+    "reference_value" : null,
+    "seq":7
+});
+
+db.userConnections.drop();
